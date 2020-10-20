@@ -17,13 +17,18 @@ class App extends React.Component {
         <header className="App-header">
           <img src='https://solarsystem.nasa.gov/internal_resources/3841' className="App-logo" alt="logo" />
         </header>
+        <PhotosList photos={this.props.photos} />
       </div>
     );
   }
 }
 
+const mapStateToProps = (state) => ({
+  photos: state.photos
+})
+
 const mapDispatchToProps = (dispatch) => ({
   fetchTodayPhotos: () => dispatch(getTodayPhotos())
 })
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

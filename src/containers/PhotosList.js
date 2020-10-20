@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import App from '../App';
+import Photo from '../components/Photo';
 
 class PhotosList extends Component {
   render() {
@@ -9,7 +11,9 @@ class PhotosList extends Component {
         </h1>
 
         <ul>
-          
+          {this.props.photos && this.props.photos.map((photo) => (
+            <Photo photo={photo} />
+          ))}
         </ul>
       </div>
     );
